@@ -1,2 +1,2281 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="83d3378c-388b-4eb6-8797-fd9773bdef70" activeEnvironment="Default" name="Soapui-Jenkins" resourceRoot="" soapui-version="5.4.0-EB" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="c6665e27-4507-4979-946d-6f7fb8b02212" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://jsonplaceholder.typicode.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint></con:endpoints><con:resource name="1" path="/todos/1" id="4f1e3c95-e25b-4f7c-954a-ce03467985cb"><con:settings/><con:parameters/><con:method name="1 1" id="3dcabe39-671b-4495-ac7f-7e6501c65e4e" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="https://jsonplaceholder.typicode.com/todos/1">ns:Response</con:element></con:representation><con:request name="Request 1" id="b1f11fb9-19cf-4621-9df3-709e3e5df138" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint><con:request/><con:originalUri>https://jsonplaceholder.typicode.com/todos/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="47850cbf-3a76-4af8-9c84-5dead5b27da4" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="c372a930-9a56-4d95-842d-a25ecef45635" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="REST Request" id="c2cadb93-8c9f-4e00-970d-cec2126589bf"><con:settings/><con:config service="https://jsonplaceholder.typicode.com" methodName="1 1" resourcePath="/todos/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Request" id="99c02320-47b4-4609-8fee-a822dcd1583a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint><con:request/><con:originalUri>https://jsonplaceholder.typicode.com/todos/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="1ad76762-79fe-49f3-bf5d-e3e1db88abb6" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+<con:soapui-project activeEnvironment="Default" name="CoverApplication" resourceRoot="" soapui-version="5.4.0-EB" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="CoverApplication" type="wsdl" bindingName="{http://atradius.com/connect/_2007_08/}CoverApplication" soapVersion="1_1" anonymous="optional" definition="https://servatnettest.atradius.com/FATFConnectWS/WSDL/CoverApplication/CoverApplication.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://servatnettest.atradius.com/FATFConnectWS/WSDL/CoverApplication/CoverApplication.wsdl"><con:part><con:url>https://servatnettest.atradius.com/FATFConnectWS/WSDL/CoverApplication/CoverApplication.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://atradius.com/connect/_2007_08/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:connect="http://atradius.com/connect/_2007_08/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://atradius.com/connect/_2007_08/" elementFormDefault="qualified" attributeFormDefault="qualified">
+      <xsd:include schemaLocation="CoverApplication.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IndicationRequestMessage">
+    <wsdl:part name="param" element="connect:applyForIndication"/>
+  </wsdl:message>
+  <wsdl:message name="IndicationResponseMessage">
+    <wsdl:part name="param" element="connect:applyForIndicationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CreditCheckRequestMessage">
+    <wsdl:part name="param" element="connect:checkCredit"/>
+  </wsdl:message>
+  <wsdl:message name="CreditCheckResponseMessage">
+    <wsdl:part name="param" element="connect:checkCreditResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CreditLimitRequestMessage">
+    <wsdl:part name="param" element="connect:applyForCreditLimit"/>
+  </wsdl:message>
+  <wsdl:message name="CreditLimitResponseMessage">
+    <wsdl:part name="param" element="connect:applyForCreditLimitResponse"/>
+  </wsdl:message>
+  <wsdl:message name="NoRiskOpinionRequestMessage">
+    <wsdl:part name="param" element="connect:getNoRiskOpinion"/>
+  </wsdl:message>
+  <wsdl:message name="NoRiskOpinionResponseMessage">
+    <wsdl:part name="param" element="connect:getNoRiskOpinionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SpecialProductRequestMessage">
+    <wsdl:part name="param" element="connect:applyForSpecialProduct"/>
+  </wsdl:message>
+  <wsdl:message name="SpecialProductResponseMessage">
+    <wsdl:part name="param" element="connect:applyForSpecialProductResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededCreditCheckRequestMessage">
+    <wsdl:part name="param" element="connect:supersedeCreditCheck"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededCreditCheckResponseMessage">
+    <wsdl:part name="param" element="connect:supersedeCreditCheckResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededCreditLimitRequestMessage">
+    <wsdl:part name="param" element="connect:supersedeCreditLimit"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededCreditLimitResponseMessage">
+    <wsdl:part name="param" element="connect:supersedeCreditLimitResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededNoRiskOpinionRequestMessage">
+    <wsdl:part name="param" element="connect:supersedeNoRiskOpinion"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededNoRiskOpinionResponseMessage">
+    <wsdl:part name="param" element="connect:supersedeNoRiskOpinionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededSpecialProductRequestMessage">
+    <wsdl:part name="param" element="connect:supersedeSpecialProduct"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededSpecialProductResponseMessage">
+    <wsdl:part name="param" element="connect:supersedeSpecialProductResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CoverForBuyerRequestMessage">
+    <wsdl:part name="param" element="connect:applyCoverForBuyer"/>
+  </wsdl:message>
+  <wsdl:message name="CoverForBuyerResponseMessage">
+    <wsdl:part name="param" element="connect:applyCoverForBuyerResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ConnectFault">
+    <wsdl:part name="reason" element="connect:ConnectException"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededIndicationRequestMessage">
+    <wsdl:part name="param" element="connect:supersedeIndication"/>
+  </wsdl:message>
+  <wsdl:message name="SupersededIndicationResponseMessage">
+    <wsdl:part name="param" element="connect:supersedeIndicationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IndicationForBuyerRequestMessage">
+    <wsdl:part name="param" element="connect:applyIndicationForBuyer"/>
+  </wsdl:message>
+  <wsdl:message name="IndicationForBuyerResponseMessage">
+    <wsdl:part name="param" element="connect:applyIndicationForBuyerResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="CoverApplication">
+    <wsdl:operation name="checkCredit">
+      <wsdl:input name="CreditCheckApplication" message="connect:CreditCheckRequestMessage"/>
+      <wsdl:output name="CreditCheckDecision" message="connect:CreditCheckResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyForCreditLimit">
+      <wsdl:input name="CreditLimitApplication" message="connect:CreditLimitRequestMessage"/>
+      <wsdl:output name="CreditLimitDecision" message="connect:CreditLimitResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getNoRiskOpinion">
+      <wsdl:input name="NoRiskOpinionApplication" message="connect:NoRiskOpinionRequestMessage"/>
+      <wsdl:output name="NoRiskOpinionDecision" message="connect:NoRiskOpinionResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyForSpecialProduct">
+      <wsdl:input name="SpecialProductApplication" message="connect:SpecialProductRequestMessage"/>
+      <wsdl:output name="SpecialProductDecision" message="connect:SpecialProductResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeCreditCheck">
+      <wsdl:input name="CreditCheckSupersedingApplication" message="connect:SupersededCreditCheckRequestMessage"/>
+      <wsdl:output name="CreditCheckSupersedingDecision" message="connect:SupersededCreditCheckResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeCreditLimit">
+      <wsdl:input name="CreditLimitSupersedingApplication" message="connect:SupersededCreditLimitRequestMessage"/>
+      <wsdl:output name="CreditLimitSupersedingDecision" message="connect:SupersededCreditLimitResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeNoRiskOpinion">
+      <wsdl:input name="NoRiskOpinionSupersedingApplication" message="connect:SupersededNoRiskOpinionRequestMessage"/>
+      <wsdl:output name="NoRiskOpinionSupersedingDecision" message="connect:SupersededNoRiskOpinionResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeSpecialProduct">
+      <wsdl:input name="SpecialProductSupersedingApplication" message="connect:SupersededSpecialProductRequestMessage"/>
+      <wsdl:output name="SpecialProductSupersedingDecision" message="connect:SupersededSpecialProductResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyCoverForBuyer">
+      <wsdl:input name="CoverForBuyerApplication" message="connect:CoverForBuyerRequestMessage"/>
+      <wsdl:output name="CoverForBuyerDecision" message="connect:CoverForBuyerResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyForIndication">
+      <wsdl:input name="IndicationApplication" message="connect:IndicationRequestMessage"/>
+      <wsdl:output name="IndicationDecision" message="connect:IndicationResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeIndication">
+      <wsdl:input name="IndicationSupersedingApplication" message="connect:SupersededIndicationRequestMessage"/>
+      <wsdl:output name="IndicationSupersedingDecision" message="connect:SupersededIndicationResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyIndicationForBuyer">
+      <wsdl:input name="IndicationForBuyerApplication" message="connect:IndicationForBuyerRequestMessage"/>
+      <wsdl:output name="IndicationForBuyerDecision" message="connect:IndicationForBuyerResponseMessage"/>
+      <wsdl:fault name="CoverApplicationException" message="connect:ConnectFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CoverApplication" type="connect:CoverApplication">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.0" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"/>
+    </wsdl:documentation>
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="checkCredit">
+      <soap:operation soapAction="urn:checkCredit" style="document"/>
+      <wsdl:input name="CreditCheckApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreditCheckDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="applyForCreditLimit">
+      <soap:operation soapAction="urn:applyForCreditLimit" style="document"/>
+      <wsdl:input name="CreditLimitApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreditLimitDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNoRiskOpinion">
+      <soap:operation soapAction="urn:getNoRiskOpinion" style="document"/>
+      <wsdl:input name="NoRiskOpinionApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="NoRiskOpinionDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="applyForSpecialProduct">
+      <soap:operation soapAction="urn:applyForSpecialProduct" style="document"/>
+      <wsdl:input name="SpecialProductApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SpecialProductDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeCreditCheck">
+      <soap:operation soapAction="urn:supersedeCreditCheck" style="document"/>
+      <wsdl:input name="CreditCheckSupersedingApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreditCheckSupersedingDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeCreditLimit">
+      <soap:operation soapAction="urn:supersedeCreditLimit" style="document"/>
+      <wsdl:input name="CreditLimitSupersedingApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreditLimitSupersedingDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeNoRiskOpinion">
+      <soap:operation soapAction="urn:supersedeNoRiskOpinion" style="document"/>
+      <wsdl:input name="NoRiskOpinionSupersedingApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="NoRiskOpinionSupersedingDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeSpecialProduct">
+      <soap:operation soapAction="urn:supersedeSpecialProduct" style="document"/>
+      <wsdl:input name="SpecialProductSupersedingApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SpecialProductSupersedingDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="applyCoverForBuyer">
+      <soap:operation soapAction="urn:applyCoverForBuyer" style="document"/>
+      <wsdl:input name="CoverForBuyerApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CoverForBuyerDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="applyForIndication">
+      <soap:operation soapAction="urn:applyForIndication" style="document"/>
+      <wsdl:input name="IndicationApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="IndicationDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="supersedeIndication">
+      <soap:operation soapAction="urn:supersedeIndication" style="document"/>
+      <wsdl:input name="IndicationSupersedingApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="IndicationSupersedingDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="applyIndicationForBuyer">
+      <soap:operation soapAction="urn:applyIndicationForBuyer" style="document"/>
+      <wsdl:input name="IndicationForBuyerApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="IndicationForBuyerDecision">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CoverApplicationException">
+        <soap:fault name="CoverApplicationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AtradiusConnectApplicationService">
+    <wsdl:documentation>Atradius Connect Service for application operations</wsdl:documentation>
+    <wsdl:port name="CoverApplication" binding="connect:CoverApplication">
+      <soap:address location="https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://servatnettest.atradius.com/FATFConnectWS/WSDL/CoverApplication/CoverApplication.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://atradius.com/connect/_2007_08/" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:connect="http://atradius.com/connect/_2007_08/" xmlns:connecterr="http://atradius.com/services/exception/_2006_12_15/exception">
+  <!--Import-->
+  <xsd:import namespace="http://atradius.com/services/exception/_2006_12_15/exception" schemaLocation="../xsd/Exception/WSException.xsd"/>
+  <xsd:include schemaLocation="../xsd/CoverDefinition.xsd"/>
+  <!--Element Definition-->
+  <xsd:element name="checkCredit" type="connect:OperationBasicType"/>
+  <xsd:element name="checkCreditResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="applyForCreditLimit" type="connect:OperationCreditLimitType"/>
+  <xsd:element name="applyForCreditLimitResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="getNoRiskOpinion" type="connect:OperationCreditLimitType"/>
+  <xsd:element name="getNoRiskOpinionResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="applyForSpecialProduct" type="connect:OperationCreditLimitType"/>
+  <xsd:element name="applyForSpecialProductResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="supersedeCreditCheck" type="connect:OperationSupersedBasicType"/>
+  <xsd:element name="supersedeCreditCheckResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="supersedeCreditLimit" type="connect:OperationSupersededCreditLimitType"/>
+  <xsd:element name="supersedeIndication" type="connect:OperationSupersededCreditLimitType"/>
+  <xsd:element name="supersedeCreditLimitResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="supersedeIndicationResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="supersedeNoRiskOpinion" type="connect:OperationSupersededCreditLimitType"/>
+  <xsd:element name="supersedeNoRiskOpinionResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="supersedeSpecialProduct" type="connect:OperationSupersededCreditLimitType"/>
+  <xsd:element name="supersedeSpecialProductResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="applyCoverForBuyer" type="connect:OperationCoverForBuyerType"/>
+  <xsd:element name="applyCoverForBuyerResponse" type="connect:CoverForBuyerResponseType"/>
+  <xsd:element name="applyForIndication" type="connect:OperationCreditLimitType"/>
+  <xsd:element name="applyForIndicationResponse" type="connect:ConnectResponseType"/>
+  <xsd:element name="applyIndicationForBuyer" type="connect:OperationCoverForBuyerType"/>
+  <xsd:element name="applyIndicationForBuyerResponse" type="connect:CoverForBuyerResponseType"/>
+  <xsd:element name="ConnectException" type="connecterr:WSException"/>
+  <!--Type Definition-->
+  <xsd:complexType name="ConnectResponseType">
+    <xsd:sequence>
+      <xsd:element name="CoverDecision" type="connect:CoverDecisionType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OperationBasicType">
+    <xsd:sequence>
+      <xsd:element name="application" type="connect:BasicApplicationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OperationAmountType">
+    <xsd:sequence>
+      <xsd:element name="application" type="connect:AmountLimitApplicationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OperationCreditLimitType">
+    <xsd:sequence>
+      <xsd:element name="application" type="connect:CreditLimitApplicationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OperationSupersedBasicType">
+    <xsd:sequence>
+      <xsd:element name="application" type="connect:BasicSupersededApplicationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OperationSupersededAmountType">
+    <xsd:sequence>
+      <xsd:element name="application" type="connect:SupersededAmountLimitApplicationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OperationSupersededCreditLimitType">
+    <xsd:sequence>
+      <xsd:element name="application" type="connect:SupersededCreditLimitApplicationType"/>
+    </xsd:sequence>
+    <!--request-->
+  </xsd:complexType>
+  <xsd:complexType name="OperationCoverForBuyerType">
+    <xsd:sequence>
+      <xsd:element name="application" type="connect:CoverForBuyerApplicationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--response-->
+  <xsd:complexType name="CoverForBuyerResponseType">
+    <xsd:sequence>
+      <xsd:element name="ExternalCoverId" type="connect:ExternalApplicationIDType">
+        <xsd:annotation>
+          <xsd:documentation>External CoverId will be same as in request , 
+				if External CoverId of the request is empty then a value will be generated</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://servatnettest.atradius.com/FATFConnectWS/WSDL/xsd/Exception/WSException.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://atradius.com/services/exception/_2006_12_15/exception" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ex="http://atradius.com/services/exception/_2006_12_15/exception">
+  <xs:complexType name="WSException">
+    <xs:sequence>
+      <xs:element name="errorCode" type="xs:string" nillable="true"/>
+      <xs:element name="errorDescription" type="xs:string" nillable="true"/>
+      <xs:element name="serverErrorReferenceToken" type="xs:string" nillable="true"/>
+      <xs:element name="values" type="ex:arrayWrapper" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arrayWrapper">
+    <xs:sequence>
+      <xs:element name="value" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://servatnettest.atradius.com/FATFConnectWS/WSDL/xsd/CoverDefinition.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2007 sp2 (http://www.altova.com) by Atradius (Atradius)-->
+<xsd:schema targetNamespace="http://atradius.com/connect/_2007_08/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:connect="http://atradius.com/connect/_2007_08/" xmlns:organisation="http://atradius.com/organisation/_2007_08/type/">
+  <xsd:import namespace="http://atradius.com/organisation/_2007_08/type/" schemaLocation="Organisation.xsd"/>
+  <!--Cover Decision-->
+  <xsd:element name="CoverDecision" type="connect:CoverDecisionType">
+    <xsd:annotation>
+      <xsd:documentation>Cover Decision returned by Atradius.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CoverDecisionType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of Cover Decision.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ExternalCoverId" type="connect:ExternalApplicationIDType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>External identifier of the cover application. This can be filled with the id of the requestor.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Buyer" type="organisation:OrganisationType">
+        <xsd:annotation>
+          <xsd:documentation>Company for which the cover is requested.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Customer" type="organisation:BasicOrganisationType">
+        <xsd:annotation>
+          <xsd:documentation>Company requesting the application.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PolicyId" type="connect:PolicyIdType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of Atradius policy.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PolicyNr" type="connect:PolicyNrType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of policy</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:choice>
+        <xsd:element name="CreditCheckApplication" type="connect:BasicApplicationSummaryType"/>
+        <xsd:element name="NoRiskOpinionApplication" type="connect:AmountLimitApplicationSummaryType"/>
+        <xsd:element name="IndicationApplication" type="connect:AmountLimitApplicationSummaryType"/>
+        <xsd:element name="CreditLimitApplication" type="connect:AmountLimitApplicationSummaryType"/>
+        <xsd:element name="SpecialProductApplication" type="connect:AmountLimitApplicationSummaryType"/>
+        <xsd:element name="GenericApplication" type="connect:BasicRequestSummaryType"/>
+      </xsd:choice>
+      <xsd:element name="Decision" type="connect:DecisionType"/>
+    </xsd:sequence>
+    <xsd:attribute name="CoverId" type="connect:CoverIdType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Atradius unique identifier of the cover decision.
+CoverId of rejections is 0.
+Please keep this as it is needed for cancellations and supersede requests.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="TypeOfCover" type="connect:CoverType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Type of the cover decision.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:simpleType name="ResultCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Success">
+        <xsd:annotation>
+          <xsd:documentation>Success indicator.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="BasicRequestSummaryType">
+    <xsd:sequence>
+      <xsd:element name="CustomerReference" type="connect:CustomerReferenceType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Customer reference for the application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="EntryDate" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Date of the Cover requesrt</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Supersede" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>true = decision supersedes previous decision
+false = no supesrsede</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasicApplicationSummaryType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:BasicRequestSummaryType">
+        <xsd:sequence>
+          <xsd:choice>
+            <xsd:element name="SupersededCoverID" type="connect:CoverIdType">
+              <xsd:annotation>
+                <xsd:documentation>The Atradius cover  id of the decision that was superseded</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AppliedBuyer" type="organisation:OrganisationIdentifierType" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation>Buyer Identifier used in the cover request</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AmountLimitApplicationSummaryType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:BasicApplicationSummaryType">
+        <xsd:sequence>
+          <xsd:element name="RequestedAmount" type="connect:AmountType">
+            <xsd:annotation>
+              <xsd:documentation>Requested amount for cover</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="CurrencyCode" type="connect:CurrencyCodeType">
+            <xsd:annotation>
+              <xsd:documentation>Currency ISO code of the amount, is the Policy Currency</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="EffectFromDate" type="xsd:date" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Effective from date of the application</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="EffectToDate" type="xsd:date" default="4712-12-31" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Effective to date of the application</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="ApplicationResultType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="25"/>
+      <xsd:enumeration value="ApplicationErrorResult"/>
+      <xsd:enumeration value="CreditCheckDecision"/>
+      <xsd:enumeration value="CreditLimitDecision"/>
+      <xsd:enumeration value="IndicationDecision"/>
+      <xsd:enumeration value="NoRiskOpinionDecision"/>
+      <xsd:enumeration value="SpecialProductDecision"/>
+      <xsd:enumeration value="ReferedDecision"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ApplicationErrorResultType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="DecisionType">
+    <xsd:sequence>
+      <xsd:element name="ApplicationResult" type="connect:ApplicationResultType">
+        <xsd:annotation>
+          <xsd:documentation>Result of the Application:
+Error Result or type of Decision</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DecisionDate" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Date of the decision or application entry date (referred decision)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="EffectFrom" type="xsd:date" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Effective from date of the decision</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="EffectTo" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Effetive to date of the decision</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PreviousCoverId" type="connect:CoverIdType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The Atradius cover id of a previous decision</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:choice>
+        <xsd:element name="ApplicationErrorResult" type="connect:ApplicationErrorResultType">
+          <xsd:annotation>
+            <xsd:documentation>Code to indicate why the requested application has been rejected
+See Result Reference Table</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="CreditCheckDecision" type="connect:CreditCheckDecisionType"/>
+        <xsd:element name="CreditLimitDecision" type="connect:CreditLimitDecisionType"/>
+        <xsd:element name="NoRiskOpinionDecision" type="connect:CreditLimitDecisionType"/>
+        <xsd:element name="IndicationDecision" type="connect:CreditLimitDecisionType"/>
+        <xsd:element name="SpecialProductDecision" type="connect:CreditLimitDecisionType"/>
+        <xsd:element name="ReferredDecision">
+          <xsd:annotation>
+            <xsd:documentation>This is used to indicate that the application has been referred to an Atradius underwriter. Optionally it can have a code when an application is transferred, superseded or cancelled.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CreditCheckDecisionType">
+    <xsd:sequence>
+      <xsd:element name="CreditCheckResultCode" type="connect:CreditCheckResultCodeType">
+        <xsd:annotation>
+          <xsd:documentation>The result of the credit check decision
+CCP = Credit Check Positive
+CCN = Credit Check Negative</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DecisionCode" type="connect:DecisionCodeType">
+        <xsd:annotation>
+          <xsd:documentation>Decision Code
+See Result Reference Table</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CreditCheckResultCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3"/>
+      <xsd:enumeration value="CCP"/>
+      <xsd:enumeration value="CCN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="CreditLimitDecisionType">
+    <xsd:sequence>
+      <xsd:element name="CreditLimitResultCode" type="connect:CreditLimitResultCodeType">
+        <xsd:annotation>
+          <xsd:documentation>APPR = Limit approved
+CDEC = Current decision unchanged
+ZERO = Limit refused</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DecisionCode" type="connect:DecisionCodeType">
+        <xsd:annotation>
+          <xsd:documentation>Decision Code
+See Result Reference Table</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Conditions" type="connect:ConditionsType" minOccurs="0" maxOccurs="10">
+        <xsd:annotation>
+          <xsd:documentation>Conditions for the Credit Limit</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="FirstAmount" type="connect:AmountLimitDecisionType"/>
+      <xsd:element name="SecondAmount" type="connect:AmountLimitDecisionType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CreditLimitResultCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+      <xsd:enumeration value="APPR"/>
+      <xsd:enumeration value="CDEC"/>
+      <xsd:enumeration value="ZERO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="DecisionCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ConditionsType">
+    <xsd:sequence>
+      <xsd:element name="TypeOfConditions" type="connect:TypeOfConditionsType">
+        <xsd:annotation>
+          <xsd:documentation>Type of the Condition
+ADMIN = administrative condition
+COVER = condition effecting the cover</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ConditionCode" type="connect:ConditionCodeType">
+        <xsd:annotation>
+          <xsd:documentation>Condition Code
+See Condition T-Codes and Variables Reference Table</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ConditionVars" type="connect:ConditionVarsType" minOccurs="0" maxOccurs="10">
+        <xsd:annotation>
+          <xsd:documentation>Condition Variable as it appears in the Condition Text</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ConditionText" type="connect:ConditionTextType">
+        <xsd:annotation>
+          <xsd:documentation>Text of the condition in the policy language</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="TypeOfConditionsType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="5"/>
+      <xsd:enumeration value="ADMIN"/>
+      <xsd:enumeration value="COVER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ConditionCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ConditionTextType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="6000"/>
+      <xsd:whiteSpace value="preserve"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ConditionVarsType">
+    <xsd:sequence>
+      <xsd:element name="TypeConditionVar" type="connect:TypeConditionVarType">
+        <xsd:annotation>
+          <xsd:documentation>Type of Condition Variable
+See Condition T-Codes and Variables Reference Table</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ValueConditionVar" type="connect:ValueConditionVarType">
+        <xsd:annotation>
+          <xsd:documentation>Condition Variable Value</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="TypeConditionVarType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+      <xsd:enumeration value="ISO"/>
+      <xsd:enumeration value="POL"/>
+      <xsd:enumeration value="ORG"/>
+      <xsd:enumeration value="DAT"/>
+      <xsd:enumeration value="DATF"/>
+      <xsd:enumeration value="DATP"/>
+      <xsd:enumeration value="NUM"/>
+      <xsd:enumeration value="AMTI"/>
+      <xsd:enumeration value="AMTD"/>
+      <xsd:enumeration value="PCTI"/>
+      <xsd:enumeration value="TEXT"/>
+      <xsd:enumeration value="TOP"/>
+      <xsd:enumeration value="PERD"/>
+      <xsd:enumeration value="PERM"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ValueConditionVarType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="2000"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="AmountLimitDecisionType">
+    <xsd:sequence>
+      <xsd:element name="Amount" type="connect:AmountType">
+        <xsd:annotation>
+          <xsd:documentation>Credit Limit Amount</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Conditions" type="connect:ConditionsType" minOccurs="0" maxOccurs="10">
+        <xsd:annotation>
+          <xsd:documentation>Conditions that apply to the amount</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--Cover Application-->
+  <xsd:complexType name="ApplicationDefinitionType">
+    <xsd:sequence>
+      <xsd:element name="CustomerId" type="connect:CustomerIdType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Atradius ID for company requesting the application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CustomerNr" type="organisation:OrganisationIdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Customer Number for which the cover is requested</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PolicyId" type="connect:PolicyIdType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Atradius Policy ID</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PolicyNr" type="connect:PolicyNrType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of policy</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ExternalCoverId" type="connect:ExternalApplicationIDType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>External identifier of the CLA
+This can be filed with the requestor's id,
+Unique reference for each application regardless of whether it is on the same buyer</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CustomerReference" type="connect:CustomerReferenceType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Customer reference for the application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasicApplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:ApplicationDefinitionType">
+        <xsd:sequence>
+          <xsd:element name="Buyer" type="organisation:OrganisationIdentifierType">
+            <xsd:annotation>
+              <xsd:documentation>Company for which the cover is requested</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AmountLimitApplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:BasicApplicationType">
+        <xsd:sequence>
+          <xsd:element name="RequestedAmount" type="connect:AmountType">
+            <xsd:annotation>
+              <xsd:documentation>Requested amount for cover</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="CurrencyCode" type="connect:CurrencyCodeType">
+            <xsd:annotation>
+              <xsd:documentation>Currency ISO code of the requested amount,
+See Country and Currency Code Reference Table</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="EffectFromDate" type="xsd:date" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Request for cover starting date. If not entered the default date will be the system date</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="EffectToDate" type="xsd:date" default="4712-12-31" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Request for cover end date</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="MultipleCover" type="xsd:boolean" default="false" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Multiple credit limits allow more than one decision on the same buyer, this is set on your policy - please refer to your policy document</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CreditLimitApplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:AmountLimitApplicationType">
+        <xsd:sequence>
+          <xsd:element name="Priority" type="connect:PriorityType" default="NORM" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Normal or High</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="ExportDetails" type="connect:ExportDetailsType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Export details
+For accelerating the underwriting process any details should be filled in even if fields are not mandatory
+
+Mandatory for UK policies</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Notes" type="connect:NotesType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Please use this to add information that will support your application.
+If notes are prenent no automatic decision will be taken</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <!--Superseding application-->
+  <xsd:complexType name="BasicSupersededApplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:ApplicationDefinitionType">
+        <xsd:sequence>
+          <xsd:element name="Buyer" type="organisation:OrganisationIdentifierType">
+            <xsd:annotation>
+              <xsd:documentation>Company for which the cover is requested</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="SupersededCoverID" type="connect:CoverIdType" nillable="true" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>The Atradius cover id of the credit limit that has to be suprseded</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SupersededAmountLimitApplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:BasicSupersededApplicationType">
+        <xsd:sequence>
+          <xsd:element name="RequestedAmount" type="connect:AmountType">
+            <xsd:annotation>
+              <xsd:documentation>Requested amount for cover</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="CurrencyCode" type="connect:CurrencyCodeType">
+            <xsd:annotation>
+              <xsd:documentation>Currency code for the requested amount</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="EffectFromDate" type="xsd:date" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Requested cover starting date, default is the system date</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="EffectToDate" type="xsd:date" default="4712-12-31" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Reuqested cover end date</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SupersededCreditLimitApplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:SupersededAmountLimitApplicationType">
+        <xsd:sequence>
+          <xsd:element name="Priority" type="connect:PriorityType" default="NORM" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>NORM = Normal
+HIGH = High</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="ExportDetails" type="connect:ExportDetailsType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Export details
+For accelerating the underwriting process any details should be filled in even if fields are not mandatory
+
+Mandatory for UK policies</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Notes" type="connect:NotesType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Please use this to add information that will support your application.
+If notes are prenent no automatic decision will be taken</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <!--Element type-->
+  <xsd:complexType name="ExportDetailsType">
+    <xsd:sequence>
+      <xsd:element name="TermsOfPayment" type="connect:TermsOfPaymentType"/>
+      <xsd:element name="PreCreditRisk" type="connect:PreCreditRiskType" minOccurs="0"/>
+      <xsd:element name="AdvancePayments" type="xsd:boolean" default="false">
+        <xsd:annotation>
+          <xsd:documentation>default is false, true – advance payments to suppliers is involved in this contract</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ThirdCountry" type="xsd:boolean" default="false">
+        <xsd:annotation>
+          <xsd:documentation>Indication that the delivery is to a third world countr.
+If set to true Notes must be added to support the application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="AssociateCompany" type="xsd:boolean" default="false">
+        <xsd:annotation>
+          <xsd:documentation>Indication that the delivery is to an associate company</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TermsOfPaymentType">
+    <xsd:sequence>
+      <xsd:element name="TermsOfPaymentPeriod" type="connect:TermsOfPaymentPeriodType">
+        <xsd:annotation>
+          <xsd:documentation>Terms of payment for the contract</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TermsOfPaymentPeriodType" type="connect:TermsOfPaymentPeriodTypeType" default="DAYS">
+        <xsd:annotation>
+          <xsd:documentation>Unit of terms of payment period.
+Month, Days, Week, Quarter or Year, default is Days</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PreCreditRiskType">
+    <xsd:sequence>
+      <xsd:element name="PreCreditRiskPeriod" type="connect:PreCreditRiskPeriodType">
+        <xsd:annotation>
+          <xsd:documentation>The terms of payment for part of the total contract which will be invoiced when despatching</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PreCreditRiskPeriodType" type="connect:PreCreditRiskPeriodTypeType" default="MONT">
+        <xsd:annotation>
+          <xsd:documentation>The unit for the Pre Credit Risk Period.
+Month, Days, Week, Quarter or Year, default is Month</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PreCreditRiskAmount" type="connect:AmountType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Part of the total contract value which will be invoiced when despatching</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PreviousReceivedCoverIdType">
+    <xsd:sequence>
+      <xsd:element name="CoverId" type="connect:CoverIdType" nillable="true">
+        <xsd:annotation>
+          <xsd:documentation>Id of the cover decision that is received and processed succesfully</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StopIndicator" type="xsd:boolean" default="false" nillable="true" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>true = response should not return a next cover decision
+false = if a decision is present, the next cover decision is returned</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PolicyNrType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="connect:String25">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of policy</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="policyTypeIdentifier" type="connect:String25">
+      <xsd:annotation>
+        <xsd:documentation>Type for identifier such as 'SYMPH' see policy number types table</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <!--Added : ApplyCoverForBuyer Operation-->
+  <!--CoverForBuyerDetailsType-->
+  <xsd:complexType name="CoverForBuyerDetailsType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:CoverForBuyerApplicationDefinitionType">
+        <xsd:sequence>
+          <xsd:element name="BuyerDetails" type="connect:BuyerOrganisationType">
+            <xsd:annotation>
+              <xsd:documentation>Company for which the cover is requested</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="RequestorDetails" type="connect:RequestorType">
+            <xsd:annotation>
+              <xsd:documentation>Requestor's details</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <!--ends-->
+  <!--BuyerOrganisationType-->
+  <xsd:complexType name="BuyerOrganisationType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of Organisation.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="connect:BasicBuyerOrganisationType">
+        <xsd:sequence>
+          <xsd:element name="LegalForm" type="organisation:LegalFormType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Legal Form of the organisation,
+See Legal Form Reference Table</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Address" type="connect:BuyerAddressType">
+            <xsd:annotation>
+              <xsd:documentation>Address of the organisation.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BasicBuyerOrganisationType">
+    <xsd:sequence>
+      <xsd:element name="Identifier" type="organisation:OrganisationIdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifiers of the organisation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="connect:BuyerNameType">
+        <xsd:annotation>
+          <xsd:documentation>Name of the organisation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--ends-->
+  <!--CoverApplicationDefinitionType-->
+  <xsd:complexType name="CoverForBuyerApplicationDefinitionType">
+    <xsd:sequence>
+      <xsd:element name="CustomerId" type="connect:CustomerIdType">
+        <xsd:annotation>
+          <xsd:documentation>Customer Number for which the cover is requested</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PolicyNr" type="connect:PolicyNrType">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of policy</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ApplicationDate" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Request for cover application date,Required field</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ExternalCoverId" type="connect:ExternalApplicationIDType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>External identifier of the CLA
+This can be filed with the requestor's id,
+Unique reference for each application regardless of whether it is on the same buyer</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CustomerReference" type="connect:CustomerReferenceType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Customer reference for the cover application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--ends-->
+  <!--Added-->
+  <xsd:complexType name="RequestorType">
+    <xsd:sequence>
+      <xsd:element name="RequestorName" type="connect:RequestorNameType">
+        <xsd:annotation>
+          <xsd:documentation>Requestor name for cover application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RequestorPhoneNumber" type="connect:PhoneNumberType">
+        <xsd:annotation>
+          <xsd:documentation>+, Country Code, Area Code , Subscriber number example â€˜+33663104456â€™</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--ends-->
+  <!--CoverForBuyerApplicationDetailsType-->
+  <xsd:complexType name="CoverForBuyerApplicationDetailsType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:CoverForBuyerDetailsType">
+        <xsd:sequence>
+          <xsd:choice>
+            <xsd:element name="CreditLimitApplication" type="connect:CoverForBuyerCreditLimitType"/>
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CoverForBuyerCreditLimitType">
+    <xsd:sequence>
+      <xsd:element name="RequestedAmount" type="connect:AmountType">
+        <xsd:annotation>
+          <xsd:documentation>Requested amount for cover, Required field</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CurrencyCode" type="connect:CurrencyCodeType">
+        <xsd:annotation>
+          <xsd:documentation>Currency ISO code of the requested amount,
+See Country and Currency Code Reference Table</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="EffectFromDate" type="xsd:date" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Request for cover starting date. If not entered the default date will be the system date</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="EffectToDate" type="xsd:date" default="4712-12-31" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Request for cover end date</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="MultipleCover" type="xsd:boolean" default="false" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Multiple credit limits allow more than one decision on the same buyer, this is set on your policy - please refer to your policy document</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--ends-->
+  <!--CoverForBuyerApplication-->
+  <xsd:complexType name="CoverForBuyerApplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="connect:CoverForBuyerApplicationDetailsType">
+        <xsd:sequence>
+          <xsd:element name="Priority" type="connect:PriorityType" default="NORM" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Normal or High</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="ExportDetails" type="connect:ExportDetailsType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Export details
+For accelerating the underwriting process any details should be filled in even if fields are not mandatory
+
+Mandatory for UK policies</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Notes" type="connect:NotesType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Please use this to add information that will support your application.
+If notes are prenent no automatic decision will be taken</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <!--ends-->
+  <xsd:simpleType name="TermsOfPaymentPeriodType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:totalDigits value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TermsOfPaymentPeriodTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+      <xsd:enumeration value="MONT"/>
+      <xsd:enumeration value="DAYS"/>
+      <xsd:enumeration value="WEEK"/>
+      <xsd:enumeration value="QUAR"/>
+      <xsd:enumeration value="YEAR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PreCreditRiskPeriodType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:totalDigits value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PreCreditRiskPeriodTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+      <xsd:enumeration value="MONT"/>
+      <xsd:enumeration value="DAYS"/>
+      <xsd:enumeration value="WEEK"/>
+      <xsd:enumeration value="QUAR"/>
+      <xsd:enumeration value="YEAR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NotesType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="2000"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--Common definitions for Atradius Cover-->
+  <xsd:simpleType name="ExternalApplicationIDType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerReferenceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="25"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CurrencyCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AmountType">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:totalDigits value="23"/>
+      <xsd:fractionDigits value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CoverIdType">
+    <xsd:annotation>
+      <xsd:documentation>Atradius unique identifier of the cover decision.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:long">
+      <xsd:totalDigits value="12"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerIdType">
+    <xsd:restriction base="xsd:long">
+      <xsd:totalDigits value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PolicyIdType">
+    <xsd:restriction base="xsd:long">
+      <xsd:totalDigits value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MailboxIdType">
+    <xsd:restriction base="xsd:long">
+      <xsd:totalDigits value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PriorityType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+      <xsd:enumeration value="NORM"/>
+      <xsd:enumeration value="HIGH"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CoverType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="15"/>
+      <xsd:enumeration value="CreditCheck"/>
+      <xsd:enumeration value="NoRiskOpinion"/>
+      <xsd:enumeration value="CreditLimit"/>
+      <xsd:enumeration value="SpecialProduct"/>
+      <xsd:enumeration value="Indication"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String25">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="25"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--Added-->
+  <xsd:simpleType name="RequestorNameType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhoneNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+      <xsd:pattern value="[+]?[0-9]+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BuyerNameType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="105"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String035">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String10">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="BuyerAddressType">
+    <xsd:sequence>
+      <xsd:element name="StreetDescription" type="connect:BuyerNameType">
+        <xsd:annotation>
+          <xsd:documentation>Street.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="City" type="organisation:String35" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>City.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PostCode" type="connect:String10" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Postcode, if exist</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RegionName" type="organisation:String20" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Name of the region/state, if exist</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CountryISOCode" type="organisation:CountryISOCodeType">
+        <xsd:annotation>
+          <xsd:documentation>ISO code of the country.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--ends-->
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://servatnettest.atradius.com/FATFConnectWS/WSDL/xsd/Organisation.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2007 sp2 (http://www.altova.com) by Atradius (Atradius)-->
+<xsd:schema targetNamespace="http://atradius.com/organisation/_2007_08/type/" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:organisation="http://atradius.com/organisation/_2007_08/type/">
+  <!--Definition of common types-->
+  <xsd:include schemaLocation="CommonTypes.xsd"/>
+  <!--Organisation Definition-->
+  <xsd:complexType name="OrganisationType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of Organisation.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="organisation:BasicOrganisationType">
+        <xsd:sequence>
+          <xsd:element name="LegalForm" type="organisation:LegalFormType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Legal Form of the organisation,
+See Legal Form Reference Table</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Address" type="organisation:AddressType">
+            <xsd:annotation>
+              <xsd:documentation>Address of the organisation.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BasicOrganisationType">
+    <xsd:sequence>
+      <xsd:element name="Identifier" type="organisation:OrganisationIdentifierType" maxOccurs="10">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifiers of the organisation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="organisation:OrganisationNameType">
+        <xsd:annotation>
+          <xsd:documentation>Name of the organisation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://servatnettest.atradius.com/FATFConnectWS/WSDL/xsd/CommonTypes.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://atradius.com/organisation/_2007_08/type/" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:organisation="http://atradius.com/organisation/_2007_08/type/">
+  <xsd:annotation>
+    <xsd:documentation>Common definition of basic types.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="LegalFormType">
+    <xsd:annotation>
+      <xsd:documentation>Legal form.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="OrganisationNameType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of organisation name.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="organisation:String105">
+        <xsd:annotation>
+          <xsd:documentation>Name by which an organisation is known.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="type" type="organisation:String3" default="REG" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Type of the name,
+REG is registered name</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--Common Basic Type-->
+  <xsd:complexType name="OrganisationIdentifierType">
+    <xsd:sequence>
+      <xsd:element name="id" type="organisation:String35">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of the organisation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="countryTypeIdentifier" type="organisation:CountryISOCodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Country ISO code, mandatory attribute if registeredOffice is not 'SYMPH'.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="registeredOffice" type="organisation:String20">
+      <xsd:annotation>
+        <xsd:documentation>Type for identifier, COC, VA, SR, FC see Registered Office and VAT code reference table</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element name="StreetDescription" type="organisation:String105" maxOccurs="3">
+        <xsd:annotation>
+          <xsd:documentation>Street.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="City" type="organisation:String35">
+        <xsd:annotation>
+          <xsd:documentation>City.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PostCode" type="organisation:String35" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Postcode, if exist</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RegionName" type="organisation:String20" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Name of the region/state, if exist</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CountryISOCode" type="organisation:CountryISOCodeType">
+        <xsd:annotation>
+          <xsd:documentation>ISO code of the country.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CountryISOCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of the country's ISO code.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String3">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String20">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String35">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String80">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String105">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="105"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:applyCoverForBuyer" name="applyCoverForBuyer" bindingOperationName="applyCoverForBuyer" type="Request-Response" outputName="CoverForBuyerDecision" inputName="CoverForBuyerApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:applyCoverForBuyer>
+         <_20:application>
+            <CustomerId>?</CustomerId>
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <ApplicationDate>?</ApplicationDate>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <BuyerDetails>
+               <!--Optional:-->
+               <Identifier registeredOffice="?">
+                  <type:id>?</type:id>
+                  <!--Optional:-->
+                  <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+               </Identifier>
+               <Name>?</Name>
+               <!--Optional:-->
+               <LegalForm>?</LegalForm>
+               <Address>
+                  <StreetDescription>?</StreetDescription>
+                  <!--Optional:-->
+                  <City>?</City>
+                  <!--Optional:-->
+                  <PostCode>?</PostCode>
+                  <!--Optional:-->
+                  <RegionName>?</RegionName>
+                  <CountryISOCode>?</CountryISOCode>
+               </Address>
+            </BuyerDetails>
+            <RequestorDetails>
+               <RequestorName>?</RequestorName>
+               <RequestorPhoneNumber>?</RequestorPhoneNumber>
+            </RequestorDetails>
+            <CreditLimitApplication>
+               <RequestedAmount>?</RequestedAmount>
+               <CurrencyCode>?</CurrencyCode>
+               <!--Optional:-->
+               <EffectFromDate>?</EffectFromDate>
+               <!--Optional:-->
+               <EffectToDate>4712-12-31</EffectToDate>
+               <!--Optional:-->
+               <MultipleCover>false</MultipleCover>
+            </CreditLimitApplication>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:applyCoverForBuyer>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:applyCoverForBuyer"/></con:call></con:operation><con:operation isOneWay="false" action="urn:applyForCreditLimit" name="applyForCreditLimit" bindingOperationName="applyForCreditLimit" type="Request-Response" outputName="CreditLimitDecision" inputName="CreditLimitApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:applyForCreditLimit>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <MultipleCover>false</MultipleCover>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:applyForCreditLimit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:applyForCreditLimit"/></con:call></con:operation><con:operation isOneWay="false" action="urn:applyForIndication" name="applyForIndication" bindingOperationName="applyForIndication" type="Request-Response" outputName="IndicationDecision" inputName="IndicationApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:applyForIndication>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <MultipleCover>false</MultipleCover>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:applyForIndication>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:applyForIndication"/></con:call></con:operation><con:operation isOneWay="false" action="urn:applyForSpecialProduct" name="applyForSpecialProduct" bindingOperationName="applyForSpecialProduct" type="Request-Response" outputName="SpecialProductDecision" inputName="SpecialProductApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:applyForSpecialProduct>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <MultipleCover>false</MultipleCover>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:applyForSpecialProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:applyForSpecialProduct"/></con:call></con:operation><con:operation isOneWay="false" action="urn:applyIndicationForBuyer" name="applyIndicationForBuyer" bindingOperationName="applyIndicationForBuyer" type="Request-Response" outputName="IndicationForBuyerDecision" inputName="IndicationForBuyerApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:applyIndicationForBuyer>
+         <_20:application>
+            <CustomerId>?</CustomerId>
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <ApplicationDate>?</ApplicationDate>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <BuyerDetails>
+               <!--Optional:-->
+               <Identifier registeredOffice="?">
+                  <type:id>?</type:id>
+                  <!--Optional:-->
+                  <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+               </Identifier>
+               <Name>?</Name>
+               <!--Optional:-->
+               <LegalForm>?</LegalForm>
+               <Address>
+                  <StreetDescription>?</StreetDescription>
+                  <!--Optional:-->
+                  <City>?</City>
+                  <!--Optional:-->
+                  <PostCode>?</PostCode>
+                  <!--Optional:-->
+                  <RegionName>?</RegionName>
+                  <CountryISOCode>?</CountryISOCode>
+               </Address>
+            </BuyerDetails>
+            <RequestorDetails>
+               <RequestorName>?</RequestorName>
+               <RequestorPhoneNumber>?</RequestorPhoneNumber>
+            </RequestorDetails>
+            <CreditLimitApplication>
+               <RequestedAmount>?</RequestedAmount>
+               <CurrencyCode>?</CurrencyCode>
+               <!--Optional:-->
+               <EffectFromDate>?</EffectFromDate>
+               <!--Optional:-->
+               <EffectToDate>4712-12-31</EffectToDate>
+               <!--Optional:-->
+               <MultipleCover>false</MultipleCover>
+            </CreditLimitApplication>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:applyIndicationForBuyer>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:applyIndicationForBuyer"/></con:call></con:operation><con:operation isOneWay="false" action="urn:checkCredit" name="checkCredit" bindingOperationName="checkCredit" type="Request-Response" outputName="CreditCheckDecision" inputName="CreditCheckApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:checkCredit>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+         </_20:application>
+      </_20:checkCredit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:checkCredit"/></con:call></con:operation><con:operation isOneWay="false" action="urn:getNoRiskOpinion" name="getNoRiskOpinion" bindingOperationName="getNoRiskOpinion" type="Request-Response" outputName="NoRiskOpinionDecision" inputName="NoRiskOpinionApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:getNoRiskOpinion>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <MultipleCover>false</MultipleCover>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:getNoRiskOpinion>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getNoRiskOpinion"/></con:call></con:operation><con:operation isOneWay="false" action="urn:supersedeCreditCheck" name="supersedeCreditCheck" bindingOperationName="supersedeCreditCheck" type="Request-Response" outputName="CreditCheckSupersedingDecision" inputName="CreditCheckSupersedingApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:supersedeCreditCheck>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <!--Optional:-->
+            <SupersededCoverID>?</SupersededCoverID>
+         </_20:application>
+      </_20:supersedeCreditCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:supersedeCreditCheck"/></con:call></con:operation><con:operation isOneWay="false" action="urn:supersedeCreditLimit" name="supersedeCreditLimit" bindingOperationName="supersedeCreditLimit" type="Request-Response" outputName="CreditLimitSupersedingDecision" inputName="CreditLimitSupersedingApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:supersedeCreditLimit>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <!--Optional:-->
+            <SupersededCoverID>?</SupersededCoverID>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:supersedeCreditLimit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:supersedeCreditLimit"/></con:call></con:operation><con:operation isOneWay="false" action="urn:supersedeIndication" name="supersedeIndication" bindingOperationName="supersedeIndication" type="Request-Response" outputName="IndicationSupersedingDecision" inputName="IndicationSupersedingApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:supersedeIndication>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <!--Optional:-->
+            <SupersededCoverID>?</SupersededCoverID>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:supersedeIndication>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:supersedeIndication"/></con:call></con:operation><con:operation isOneWay="false" action="urn:supersedeNoRiskOpinion" name="supersedeNoRiskOpinion" bindingOperationName="supersedeNoRiskOpinion" type="Request-Response" outputName="NoRiskOpinionSupersedingDecision" inputName="NoRiskOpinionSupersedingApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:supersedeNoRiskOpinion>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <!--Optional:-->
+            <SupersededCoverID>?</SupersededCoverID>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:supersedeNoRiskOpinion>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:supersedeNoRiskOpinion"/></con:call></con:operation><con:operation isOneWay="false" action="urn:supersedeSpecialProduct" name="supersedeSpecialProduct" bindingOperationName="supersedeSpecialProduct" type="Request-Response" outputName="SpecialProductSupersedingDecision" inputName="SpecialProductSupersedingApplication" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <_20:supersedeSpecialProduct>
+         <_20:application>
+            <!--Optional:-->
+            <CustomerId>?</CustomerId>
+            <!--Optional:-->
+            <CustomerNr registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </CustomerNr>
+            <!--Optional:-->
+            <PolicyId>?</PolicyId>
+            <!--Optional:-->
+            <PolicyNr policyTypeIdentifier="?">
+               <Id>?</Id>
+            </PolicyNr>
+            <!--Optional:-->
+            <ExternalCoverId>?</ExternalCoverId>
+            <!--Optional:-->
+            <CustomerReference>?</CustomerReference>
+            <Buyer registeredOffice="?">
+               <type:id>?</type:id>
+               <!--Optional:-->
+               <type:countryTypeIdentifier>?</type:countryTypeIdentifier>
+            </Buyer>
+            <!--Optional:-->
+            <SupersededCoverID>?</SupersededCoverID>
+            <RequestedAmount>?</RequestedAmount>
+            <CurrencyCode>?</CurrencyCode>
+            <!--Optional:-->
+            <EffectFromDate>?</EffectFromDate>
+            <!--Optional:-->
+            <EffectToDate>4712-12-31</EffectToDate>
+            <!--Optional:-->
+            <Priority>NORM</Priority>
+            <!--Optional:-->
+            <ExportDetails>
+               <TermsOfPayment>
+                  <TermsOfPaymentPeriod>?</TermsOfPaymentPeriod>
+                  <TermsOfPaymentPeriodType>DAYS</TermsOfPaymentPeriodType>
+               </TermsOfPayment>
+               <!--Optional:-->
+               <PreCreditRisk>
+                  <PreCreditRiskPeriod>?</PreCreditRiskPeriod>
+                  <PreCreditRiskPeriodType>MONT</PreCreditRiskPeriodType>
+                  <!--Optional:-->
+                  <PreCreditRiskAmount>?</PreCreditRiskAmount>
+               </PreCreditRisk>
+               <AdvancePayments>false</AdvancePayments>
+               <ThirdCountry>false</ThirdCountry>
+               <AssociateCompany>false</AssociateCompany>
+            </ExportDetails>
+            <!--Optional:-->
+            <Notes>?</Notes>
+         </_20:application>
+      </_20:supersedeSpecialProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:supersedeSpecialProduct"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true" id="bdeb89f7-c8d2-42cc-b7c6-0f25b773ac60"><con:settings/><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import groovy.sql.Sql;
+com.eviware.soapui.support.GroovyUtils.registerJdbcDriver( "oracle.jdbc.driver.OracleDriver" )
+def con = Sql.newInstance("jdbc:oracle:thin:" + "GBAUT08" + "/" + "Monday01" + "@sl09:1509:SYMF","oracle.jdbc.pool.OracleDataSource");
+//jdbc:oracle:thin:GBAUT08/Monday01@sl09:1509:SYMF
+// SQL query
+
+def query = """SELECT tcl.ORBUD_ORNNN_ID,tcl.bupiy_id,tcl.ORCUR_ORNNN_ID  FROM tbor_non_ncm_organisations tnno,       tbbu_policies tb,       tbbu_credit_limits tcl WHERE     TCL.BUPIY_ID = tb.id       AND TNNO.ID = TCL.ORBUD_ORNNN_ID       and tb.mcl_flag='Y'       and tcl.effect_to_dat>sysdate and rownum&lt;2"""
+testRunner.testCase.setPropertyValue("query",query) 
+
+def queryProp=context.expand('${#TestCase#query}')
+// Now that the query is defined with the parameterized number in it, query the DB
+log.info "Executing query..."
+Thread.sleep(500)
+context.res = con.rows(queryProp)
+Thread.sleep(500)
+
+if( context.loopIndex == null ) {
+  context.loopIndex = 0
+}
+
+// Get the current row
+def row = context.res[0].toString()
+log.info 0
+
+row = row.replace("{", "").replace("}","");
+String[] dataArray = row.split("=")
+
+// Transaction ID
+String[] BuyerIDArray = dataArray[1].split(",")
+String[] PolicyIDArray = dataArray[2].split(",")
+String[] CustomerIDArray = dataArray[3].split(",")
+testRunner.testCase.setPropertyValue("BuyerID",BuyerIDArray[0].trim())
+testRunner.testCase.setPropertyValue("PolicyID",PolicyIDArray[0].trim())
+testRunner.testCase.setPropertyValue("CustomerID",CustomerIDArray[0].trim())
+
+log.info "Transaction ID = " + PolicyIDArray[0].trim()
+log.info "Transaction ID = " + CustomerIDArray[0].trim()
+log.info "Transaction ID = " + BuyerIDArray[0].trim()</script></con:config></con:testStep><con:testStep type="request" name="Test Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CoverApplication</con:interface><con:operation>applyForCreditLimit</con:operation><con:request name="Test Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://servatnettest.atradius.com/FATFConnectWS/services/CoverApplication</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:_20="http://atradius.com/connect/_2007_08/" xmlns:type="http://atradius.com/organisation/_2007_08/type/">
+   <soapenv:Header>
+<ns2:Security xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+<ns2:UsernameToken>
+<ns2:Username>zzndn19</ns2:Username>
+<ns2:Password>wales123</ns2:Password>
+</ns2:UsernameToken>
+</ns2:Security>
+</soapenv:Header>
+ <soapenv:Body>
+      <_20:applyForCreditLimit>
+         <_20:application>
+               <CustomerId>${#TestCase#CustomerID}</CustomerId>             
+            <PolicyId>${#TestCase#PolicyID}</PolicyId>               
+ <CustomerReference>Groovy TEST</CustomerReference>
+            <Buyer registeredOffice="SYMPH">
+               <type:id>${#TestCase#BuyerID}</type:id>             
+            </Buyer>
+            <RequestedAmount>1000</RequestedAmount>
+            <CurrencyCode>EUR</CurrencyCode>    
+            <MultipleCover>true</MultipleCover>                
+         </_20:application>
+      </_20:applyForCreditLimit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>query</con:name><con:value>SELECT tcl.ORBUD_ORNNN_ID,tcl.bupiy_id,tcl.ORCUR_ORNNN_ID  FROM tbor_non_ncm_organisations tnno,       tbbu_policies tb,       tbbu_credit_limits tcl WHERE     TCL.BUPIY_ID = tb.id       AND TNNO.ID = TCL.ORBUD_ORNNN_ID       and tb.mcl_flag='Y'       and tcl.effect_to_dat>sysdate and rownum&lt;2</con:value></con:property><con:property><con:name>transactionID</con:name><con:value>11632</con:value></con:property><con:property><con:name>BuyerID</con:name><con:value>15837639</con:value></con:property><con:property><con:name>PolicyID</con:name><con:value>22113</con:value></con:property><con:property><con:name>CustomerID</con:name><con:value>11632</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
